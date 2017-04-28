@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(MainActivity.this, unCabinetDAO.getCabinet(1).getAdresse().toString(),
                 Toast.LENGTH_LONG).show();
-
+        //test
     }
 }
