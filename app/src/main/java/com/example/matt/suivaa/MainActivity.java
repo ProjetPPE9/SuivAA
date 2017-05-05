@@ -3,9 +3,12 @@ package com.example.matt.suivaa;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import org.json.JSONArray;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +30,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(passageVue1);
             }
         });
-        //testClasseDAO();
+
+        //testWS;
+        WebServices maTache = new WebServices();
+        maTache.execute();
+        try {
+            // dans le cas où on récupère un objet
+
+            String resultat = maTache.get();
+            Log.d("resultat_execute", resultat);
+
+            // dans le cas où on récupère un tableau d'objet
+            JSONArray array = new JSONArray(resultat);
+            Log.d("debogage ",""+array.length());
+            String valeurRecuperee;
+            for(int i = 0 ; i < array.length() ; i++) {
+                valeurRecuperee= array.getJSONObject(i).getString("libelleCat");
+                Log.d("debogage for", valeurRecuperee);
+            }
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void testClasseDAO()

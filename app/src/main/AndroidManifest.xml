@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".VisiteActivity"></activity>
-        <activity android:name=".CabinetActivity"></activity>
+        <activity android:name=".CabinetVisiteActivity"></activity>
+        <activity android:name=".CabinetSaisieActivity"></activity>
+        <activity android:name=".MedecinVisiteActivity"></activity>
+        <activity android:name=".MedecinSaisieActivity"></activity>
+        <activity android:name=".InformationVisiteActivity"></activity>
     </application>
 
 </manifest>
