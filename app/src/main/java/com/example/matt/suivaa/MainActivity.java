@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,42 +20,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        final EditText edtxt_id = (EditText) findViewById(R.id.editTxt_login);
+        final EditText edtxt_mdp = (EditText) findViewById(R.id.editTxt_mdp);
         boutonCo = (Button)findViewById(R.id.btnConnexion);
 
         boutonCo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent passageVue1 = new Intent(MainActivity.this, VisiteActivity.class );
-                startActivity(passageVue1);
+                WebServices maTache = new WebServices();
+                maTache.execute(edtxt_id.getText().toString(), edtxt_mdp.getText().toString());
+                try
+                {
+                    // dans le cas où on récupère un objet
+
+                    String resultat = maTache.get();
+                    Log.d("resultat_execute", resultat);
+
+                    // dans le cas où on récupère un tableau d'objet
+                    /*JSONArray array = new JSONArray(resultat);
+                    Log.d("debogage ",""+array.length());
+                    String valeurRecuperee;
+                    for(int i = 0 ; i < array.length() ; i++) {
+                        valeurRecuperee= array.getJSONObject(i).getString("libelleCat");
+                        Log.d("debogage for", valeurRecuperee);
+                    }*/
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+                /*Intent passageVue1 = new Intent(MainActivity.this, VisiteActivity.class );
+                startActivity(passageVue1);*/
             }
         });
-
-        //testWS;
-        WebServices maTache = new WebServices();
-        maTache.execute();
-        try {
-            // dans le cas où on récupère un objet
-
-            String resultat = maTache.get();
-            Log.d("resultat_execute", resultat);
-
-            // dans le cas où on récupère un tableau d'objet
-            JSONArray array = new JSONArray(resultat);
-            Log.d("debogage ",""+array.length());
-            String valeurRecuperee;
-            for(int i = 0 ; i < array.length() ; i++) {
-                valeurRecuperee= array.getJSONObject(i).getString("libelleCat");
-                Log.d("debogage for", valeurRecuperee);
-            }
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void testClasseDAO()

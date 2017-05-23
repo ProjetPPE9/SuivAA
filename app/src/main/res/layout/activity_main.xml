@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTxt_mdp"
         android:password="true"
         android:layout_below="@+id/editTxt_login"
         android:layout_alignStart="@+id/editTxt_login"
