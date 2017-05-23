@@ -28,6 +28,7 @@ public class WebServices extends AsyncTask<String, Void, String>
     protected String doInBackground(String... valeur)
     {
         return appelWS("http://10.0.2.2/WebService/wsCategorie.php");
+        //return appelWS("http://10.0.2.2/WebService/wsIMCMD.php?poids="+ valeur[0] +"&taille=" + valeur[1]);
     }
 
 
