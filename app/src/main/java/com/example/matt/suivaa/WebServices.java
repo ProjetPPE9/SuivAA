@@ -27,7 +27,7 @@ public class WebServices extends AsyncTask<String, Void, String>
     @Override
     protected String doInBackground(String... valeur)
     {
-        return appelWS("http://10.0.2.2/gsbappv2/webservices/wsRecupID.php?login="+ valeur[0] +"&mdp=" + valeur[1]);
+        return appelWS("http://192.168.19.2/gsbappv3/webservices/"+ valeur[0] +"?login="+ valeur[1] +"&mdp=" + valeur[2]);
         //return appelWS("http://10.0.2.2/WebService/wsIMCMD.php?poids="+ valeur[0] +"&taille=" + valeur[1]);
     }
 

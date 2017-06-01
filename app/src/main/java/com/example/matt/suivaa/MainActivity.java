@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 WebServices maTache = new WebServices();
-                maTache.execute(edtxt_id.getText().toString(), edtxt_mdp.getText().toString());
+                maTache.execute("wsRecupID.php",edtxt_id.getText().toString(), edtxt_mdp.getText().toString());
                 try
                 {
                     // dans le cas où on récupère un objet
@@ -58,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 /*Intent passageVue1 = new Intent(MainActivity.this, VisiteActivity.class );
                 startActivity(passageVue1);*/
             }
+
         });
     }
+    VisiteurDAO unVisiteurDAO = new VisiteurDAO(this.getApplicationContext());
+    //unVisiteurDAO.addVisiteur(resultat,edtxt_id.getText().toString(), edtxt_mdp.getText().toString())
 
     public void testClasseDAO()
     {
