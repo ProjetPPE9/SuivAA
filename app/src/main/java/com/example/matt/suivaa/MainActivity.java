@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText edtxt_id = (EditText) findViewById(R.id.editTxt_login);
         final EditText edtxt_mdp = (EditText) findViewById(R.id.editTxt_mdp);
         boutonCo = (Button)findViewById(R.id.btnConnexion);
+        VisiteurDAO unVisiteurDAO = new VisiteurDAO(this.getApplicationContext());
 
         boutonCo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
                 WebServices maTache = new WebServices();
                 maTache.execute("wsRecupID.php",edtxt_id.getText().toString(), edtxt_mdp.getText().toString());
+
                 try
                 {
                     // dans le cas où on récupère un objet
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                         valeurRecuperee= array.getJSONObject(i).getString("libelleCat");
                         Log.d("debogage for", valeurRecuperee);
                     }*/
+                    // a modifier pour enregistrer sur la BDD local
+                    //unVisiteurDAO.addVisiteur(resultat,edtxt_id.getText().toString(), edtxt_mdp.getText().toString())
                 }
                 catch (InterruptedException e)
                 {
@@ -61,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-    VisiteurDAO unVisiteurDAO = new VisiteurDAO(this.getApplicationContext());
-    //unVisiteurDAO.addVisiteur(resultat,edtxt_id.getText().toString(), edtxt_mdp.getText().toString())
+
+
 
     public void testClasseDAO()
     {
