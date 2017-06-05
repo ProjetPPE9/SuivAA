@@ -11,15 +11,15 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper {
     // Table Visiteur
     public static final String VISITEUR_TABLE_NAME = "Visiteur";
 	public static final String VISITEUR_KEY = "id";
-	public static final String VISITEUR_NOM = "nom";
-	public static final String VISITEUR_PRENOM = "prenom";
+	public static final String VISITEUR_LOGIN = "login";
+	public static final String VISITEUR_MDP = "mdp";
     public static final String VISITEUR_TABLE_DROP = "DROP TABLE IF EXISTS " + VISITEUR_TABLE_NAME + ";";
 	public static final String VISITEUR_TABLE_CREATE =
 			"CREATE TABLE IF NOT EXISTS " + VISITEUR_TABLE_NAME + " (" +
 
 					VISITEUR_KEY + " TEXT PRIMARY KEY, " +
-					VISITEUR_NOM + " TEXT NOT NULL, " +
-					VISITEUR_PRENOM + " TEXT NOT NULL);";
+					VISITEUR_LOGIN + " TEXT NOT NULL, " +
+					VISITEUR_MDP + " TEXT NOT NULL);";
 
 
     // Table Cabinet
@@ -101,7 +101,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(MEDECIN_TABLE_CREATE);
         db.execSQL(VISITE_TABLE_CREATE);
 		
-		db.execSQL("insert into visiteur(id,nom,prenom) values(1,'D','Andre');"); // Insère une ligne dans la table visiteur
+		//db.execSQL("insert into visiteur(id,nom,prenom) values(1,'D','Andre');"); // Insère une ligne dans la table visiteur
 		
 		//ContentValues value = new ContentValues(); // sert de "liste" de valeur contenant des lignes à ajouter à la table viticulteur
 		//value.put("nomV", "Esquerra"); // le nom du viticulteur à ajouter

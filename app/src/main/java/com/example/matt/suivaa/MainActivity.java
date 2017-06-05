@@ -23,7 +23,12 @@ public class MainActivity extends AppCompatActivity {
         final EditText edtxt_id = (EditText) findViewById(R.id.editTxt_login);
         final EditText edtxt_mdp = (EditText) findViewById(R.id.editTxt_mdp);
         boutonCo = (Button)findViewById(R.id.btnConnexion);
-        VisiteurDAO unVisiteurDAO = new VisiteurDAO(this.getApplicationContext());
+        final VisiteurDAO unVisiteurDAO = new VisiteurDAO(this.getApplicationContext());
+
+        /* Test de l'ajout d'un visiteur
+        unVisiteurDAO.addVisiteur("a17","dandre", "oppg5");
+        Toast.makeText(MainActivity.this, unVisiteurDAO.getVisiteur().toString(),
+                Toast.LENGTH_LONG).show();*/
 
         boutonCo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         valeurRecuperee= array.getJSONObject(i).getString("libelleCat");
                         Log.d("debogage for", valeurRecuperee);
                     }*/
-                    // a modifier pour enregistrer sur la BDD local
-                    //unVisiteurDAO.addVisiteur(resultat,edtxt_id.getText().toString(), edtxt_mdp.getText().toString())
+
+                    // ajoute un visiteur dans la bdd locale
+                    unVisiteurDAO.addVisiteur(resultat.toString(),edtxt_id.getText().toString(), edtxt_mdp.getText().toString());
                 }
                 catch (InterruptedException e)
                 {

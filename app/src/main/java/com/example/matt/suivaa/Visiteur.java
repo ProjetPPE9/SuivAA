@@ -3,14 +3,14 @@ package com.example.matt.suivaa;
 public class Visiteur
 {
 	private String id;
-	private String nom;
-	private String prenom;
+	private String login;
+	private String mdp;
 
-	public Visiteur(String id, String nom, String prenom)
+	public Visiteur(String id, String login, String mdp)
     {
 		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
+		this.login = login;
+		this.mdp = mdp;
 	}
 	
 	public String getId() {
@@ -21,23 +21,23 @@ public class Visiteur
 		this.id = id;
 	}
 	
-	public String getNom() {
-		return nom;
+	public String getLogin() {
+		return login;
 	}
 	
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 	
-	public String getPrenom() {
-		return this.prenom;
+	public String getMdp() {
+		return this.mdp;
 	}
 	
-	public void setNiveauV(String prenom) {
-		this.prenom = prenom;
+	public void setNiveauV(String mdp) {
+		this.mdp = mdp;
 	}
 
 	public String toString(){
-		return "Visiteur " + id + " : " + nom + " " + prenom;
+		return "Visiteur " + id + " : " + login + " " + mdp;
 	}
 }
